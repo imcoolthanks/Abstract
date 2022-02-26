@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Clock from './Components/Clock/Clock.js';
+import Pomodoro from './Components/Pomodoro/Pomodoro.js';
 
 function App() {
   return (
     <>
-      <div className="App">
-        <Clock />
-      </div>
+      <Clock />
+      <Pomodoro />
     </>
   );
 }
