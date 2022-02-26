@@ -17,6 +17,28 @@ class Pomodoro extends React.Component {
         let posLama;
         let count;
         document.getElementById("stats").innerHTML = pos;
+        let clock = document.getElementsByClassName("timer").FlipClock(0, {
+            countdown: true,
+            clockFace: 'MinuteCounter',
+            autoStart: false,
+            callbacks: {
+            interval: function(){
+                if (clock.getTime() == 0){
+                if (pos == "session"){
+                    clock.setTime(countB*60);
+                    clock.start();
+                    pos = "break";
+                    document.getElementById("stats").innerHTML = pos;
+                } else if (pos == "break"){
+                    clock.setTime(countS*60);
+                    clock.start();
+                    pos = "session";
+                    document.getElementById("stats").innerHTML = pos;
+                }
+                }        
+            }
+            }
+        })  
         
         document.getElementById("sessInc").on("click", function(){
             if (document.getElementById("session").innerHTML > 0){
